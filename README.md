@@ -1,2 +1,3 @@
 # shimo
-[demo1](https://noob-ckx.github.io/shimo/indexFirst.html)  
+[demoFirst](https://noob-ckx.github.io/shimo/indexFirst.html)  
+[demoSecond](https://noob-ckx.github.io/shimo/indexSecond.html)  
