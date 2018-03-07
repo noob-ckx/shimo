@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<style type="text/css">
+	@font-face {
+		  font-family: 'iconfont';  /* project id 581410 */
+		  src: url('https://at.alicdn.com/t/font_581410_dbgs94beicuqsemi.eot');
+		  src: url('https://at.alicdn.com/t/font_581410_dbgs94beicuqsemi.eot?#iefix') format('embedded-opentype'),
+		  url('https://at.alicdn.com/t/font_581410_dbgs94beicuqsemi.woff') format('woff'),
+		  url('https://at.alicdn.com/t/font_581410_dbgs94beicuqsemi.ttf') format('truetype'),
+		  url('https://at.alicdn.com/t/font_581410_dbgs94beicuqsemi.svg#iconfont') format('svg');
+		}
+	.icon{
+	    font-family:"iconfont" !important;
+	    font-size:16px;
+	    font-style:normal;
+	    -webkit-font-smoothing: antialiased;
+	    -webkit-text-stroke-width: 0.2px;
+	    -moz-osx-font-smoothing: grayscale;
+	}
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	body{
+		padding: 5px;
+		margin: 0;
+	}
+	.main{
+		width: 99%;
+		border: 1px solid grey;
+		padding: 3px;
+		border-radius: 3px;
+	}
+	button{
+		border-radius: 15px;
+		background-color: #2C72DE;
+		color: white;
+		border: none;
+		margin-left: 5px;
+		padding: 0px 5px;
+	}
+	.bac{
+		float: right;
+		font-size: 20px;
+		color: grey;
+		background-color: white;
+	}
+
+	.remove{
+		margin-left: 5px;
+	}
+	.menu{
+		box-shadow: 5px 5px 5px 5px #888888;
+		z-index: 9;
+		position: relative;
+		top: -1px;
+	}
+	.search{
+		width: 100%;
+		background-color: #EAEAEA;
+		padding: 5px 0px;
+	}
+	.s-main{
+		width: 90%;
+		height: 30px;
+		margin: 0 auto;
+		background-color: white;
+		border-radius: 20px;
+	}
+	.serIcon{
+		margin: 10px ;
+		font-size: 20px;
+		color: grey;
+		width: 10%;
+	}
+	.serText{
+		border: none;
+		width: 90%;
+	}
+	ul{
+		list-style-type: none;
+		margin-left: 30px;
+	}
+	li{
+		margin-top: 15px;
+	}
+	.backColor:before{
+		border: 5px solid red;
+		content: "";
+		position: absolute;
+		right: 15px;
+	}
+	.backColor:after{
+		border: 5px solid red;
+		content: "1";
+		position: absolute;
+	}
+	</style>
+<body>
+	
+	<div id='ceshi'>
+		<div class="main" >
+			<button v-for="(item,index) in checkedNames" v-on:click="checkedNames.splice(index,1)">
+		    {{ item }}
+		    <i class="icon remove" >&#xe617;</i>
+		  	</button>
+			<button class="icon bac" v-on:click="show = !show">&#xe726;</button>
+			<div style="clear: both;"></div>
+		</div>
+		<transition name="fade">
+			<div class="menu" v-if="show">
+				<div class="search">
+					<div class="s-main">
+						<span class="serIcon"><i class="icon">&#xe62b;</i></span>
+						<input type="text" name="search" placeholder="搜索" class="serText">
+					</div>
+				</div>
+					<ul>
+						<li>
+							<input type="checkbox" value="变更中" v-model="checkedNames" class="backColor"> 
+							<label>变更中</label>
+						</li>
+						<li>
+							<input type="checkbox" value="未生效" v-model="checkedNames">
+							<label>未生效</label>
+						</li>
+						<li>
+							<input type="checkbox" value="作废" v-model="checkedNames">
+							<label>作废</label>
+						</li>
+						<li>
+							<input type="checkbox" value="正常" v-model="checkedNames">
+							<label>正常</label>
+						</li>
+						<li>
+							<input type="checkbox" value="审核中" v-model="checkedNames">
+							<label>审核中</label>
+						</li>
+					</ul>
+			</div>	
+		</transition>	
+	</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+	  el: '#ceshi',
+	  data: {
+	    checkedNames: [],
+	    show: false
+	  }
+	})
+</script>
+
+</html>
