@@ -1,2 +1,2 @@
 # shimo
-[demo](http://carryguan.me/flex-add/fb1.html)  
+[demo1](https://noob-ckx.github.io/shimo/indexFirst.html)  
